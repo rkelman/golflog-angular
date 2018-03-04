@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 
 @Component({
   selector: 'app-root',
@@ -14,8 +14,5 @@ export class AppComponent {
 
   constructor(private http: HttpClient) {}
 
-  getPosts() {
-    this.posts = this.http.get(this.ROOT_URL + '/posts');
-  }
 
 }
