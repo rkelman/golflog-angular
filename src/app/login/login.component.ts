@@ -3,6 +3,7 @@ import { Router } from '@angular/router';
 import { FormsModule } from '@angular/forms';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { User } from '../user';
+import { Observable } from 'rxjs'
 
 @Component({
   selector: 'app-login',
@@ -11,7 +12,7 @@ import { User } from '../user';
 })
 export class LoginComponent implements OnInit {
   readonly ROOT_URL='http://golflog.daxhund.com';
-  newUser: any;
+  logResult: any;
 
   constructor(private http: HttpClient) { }
 
@@ -19,8 +20,8 @@ export class LoginComponent implements OnInit {
     console.log(form.value);
     //const data: User = form.value;
 
-    this.newUser = this.http.post(this.ROOT_URL + '/login.php', form)
-    console.log(this.newUser);
+    this.logResult = this.http.post(this.ROOT_URL + '/login.php', form)
+    console.log(this.logResult);
   }
 
   ngOnInit() {
