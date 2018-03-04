@@ -23,6 +23,6 @@ export class RegisterComponent implements OnInit {
     const data: User = regfrm.value;
 
     this.newUser = this.http.post(this.ROOT_URL + '/register.php', data)
-    
+    console.log(this.newUser);
   }
 }
