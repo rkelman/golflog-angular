@@ -1,0 +1,19 @@
+<div class="container">
+  <div class="jumbotron">
+    <form #logfrm="ngForm" (ngSubmit)="loginUser(logfrm)">
+      <div class="form-group">
+        <label for="eMail">eMail</label>
+        <input type="email" name="eMail" class="form-control" ngModel pattern="^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$" required>
+      </div>
+      <div class="form-group">
+        <label for="password">Password</label>
+        <input type="password" name="password" class="form-control" ngModel required>
+      </div>
+      <button type="submit" name="loginButton" class="btn btn-success" [disabled]="logfrm.invalid" (onClick)="loginUser(logfrm)">Login</button>
+    </form>
+    <a routerLink="/register" routerLinkActive="active" class="alc">Create an Account</a><br>
+    <a routerLink="/reset" routerLinkActive="active" class="alc">Forgot Password?</a><br>
+    {{ logfrm.value | json }}
+
+  </div>
+</div>
