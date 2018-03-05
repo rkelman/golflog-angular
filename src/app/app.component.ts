@@ -6,6 +6,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
+
 export class AppComponent {
   title = 'Golf Log Pro';
   //readonly ROOT_URL='http://golflog.daxhund.com';

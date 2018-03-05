@@ -3,7 +3,7 @@ import { Router } from '@angular/router';
 import { FormsModule } from '@angular/forms';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { User } from '../user';
-import { Observable } from 'rxjs'
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-login',
