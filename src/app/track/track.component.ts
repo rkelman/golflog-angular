@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { User } from '../user';
+import { UserService } from '../user.service';
 
 @Component({
   selector: 'app-track',
@@ -6,10 +8,19 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./track.component.css']
 })
 export class TrackComponent implements OnInit {
+  currentUser: User;
+  users: User[] = [];
 
-  constructor() { }
+  constructor(private userService: UserService) {
+    this.currentUser = JSON.parse(localStorage.getItem('currentUser'));
+  }
 
   ngOnInit() {
   }
 
+  /*
+  private loadAllUsers() {
+    this.userService.getAll().subscribe(users => { this.users = users; });
+  }
+  */
 }

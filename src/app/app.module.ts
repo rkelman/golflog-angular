@@ -9,6 +9,8 @@ import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
 import { ResetComponent } from './reset/reset.component';
 import { TrackComponent } from './track/track.component';
+import { AuthService } from './auth.service';
+import { AlertService } from './alert.service';
 //import { routes } from './app.routes';
 
 @NgModule({
@@ -28,10 +30,13 @@ import { TrackComponent } from './track/track.component';
       {path: 'login', component: LoginComponent },
       {path: 'register', component: RegisterComponent },
       {path: 'reset', component: ResetComponent },
+      {path: 'track', component: TrackComponent },
       {path: '**', component: LoginComponent }
   ])
   ],
-  providers: [],
+  providers: [
+    AuthService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -1,19 +1,23 @@
 <div class="container">
   <div class="jumbotron">
-    <form #logfrm="ngForm" (ngSubmit)="loginUser(logfrm)">
+    <form #logfrm="ngForm" (ngSubmit)="loginUser(email.value, password.value)">
       <div class="form-group">
         <label for="email">eMail</label>
-        <input type="email" name="email" class="form-control" ngModel pattern="^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$" required>
+        <input ngModel name="email" #email="ngModel" type="email" id="email" class="form-control" pattern="^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$" required>
       </div>
       <div class="form-group">
         <label for="password">Password</label>
-        <input type="password" name="password" class="form-control" ngModel required>
+        <input ngModel name="password" #password="ngModel" type="password" id="password" class="form-control" required>
       </div>
-      <button type="submit" name="loginButton" class="btn btn-success" [disabled]="logfrm.invalid" (onClick)="loginUser(logfrm)">Login</button>
+      <button type="submit" name="loginButton" class="btn btn-success" [disabled]="logfrm.invalid" (onClick)="loginUser(email.value, password.value)">Login</button>
     </form>
     <a routerLink="/register" routerLinkActive="active" class="alc">Create an Account</a> | 
     <a routerLink="/reset" routerLinkActive="active" class="alc">Forgot Password?</a><br>
     <!--{{ logfrm.value | json }}-->
-{{ logResult | async | json }}
+req: {{ reqString | json }} <BR>
+resp (json): {{ logResult | async | json }}<BR>
+resp (raw):   {{ logResult | async }}
+<!--email: {{ resultObj.email}} <BR>
+  uid: {{ resultObj.uid}}-->
   </div>
 </div>

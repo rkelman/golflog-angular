@@ -1,27 +1,50 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { Router, ActivatedRoute } from '@angular/router';
 import { FormsModule } from '@angular/forms';
-import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { User } from '../user';
-import { Observable } from 'rxjs';
+import { AuthService } from '../auth.service';
+import { AlertService } from '../alert.service';
 
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.css']
 })
+
 export class LoginComponent implements OnInit {
-  readonly ROOT_URL='http://golflog.daxhund.com';
-  logResult: any;
+  public request = {
+    email: '',
+    password: ''
+  };
 
-  constructor(private http: HttpClient) { }
+  public reqString: String = '';
+  public logResult: any;
 
-  loginUser(form){
-    console.log(form.value);
-    //const data: User = form.value;
+  public resultObj: any;
+  /* = {
+    email: '',
+    firstname: '',
+    lastname: '',
+    uid: 0
+  };*/
+  
+  constructor(private authService: AuthService, 
+              private router: Router,
+              private alertService: AlertService) { }
 
-    this.logResult = this.http.post(this.ROOT_URL + '/login.php', form)
-    console.log(this.logResult);
+  loginUser(user, password){
+    console.log('email: '+user);
+    console.log('password: '+password);
+    this.reqString = '{ "email": "'+user+'", "password": "'+password+'" }';
+    console.log(this.reqString);
+
+    this.authService.authUser(this.reqString, "login")
+      .subscribe(data => {
+        this.router.navigate(['/track']);
+      },
+      error => {
+        this.alertService.error(error);
+      });
   }
 
   ngOnInit() {

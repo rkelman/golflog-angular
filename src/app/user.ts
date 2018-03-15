@@ -1,6 +1,7 @@
 export interface User{
-    firstname:string,
-    lastname:string,
-    email:string,
-    password:string
+    uid: Number,
+    firstname: String,
+    lastname: String,
+    email: String,
+    token: String
 }
