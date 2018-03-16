@@ -11,6 +11,7 @@ import { ResetComponent } from './reset/reset.component';
 import { TrackComponent } from './track/track.component';
 import { AuthService } from './auth.service';
 import { AlertService } from './alert.service';
+import { UserService } from './user.service';
 //import { routes } from './app.routes';
 
 @NgModule({
@@ -35,7 +36,9 @@ import { AlertService } from './alert.service';
   ])
   ],
   providers: [
-    AuthService
+    AuthService,
+    AlertService,
+    UserService
   ],
   bootstrap: [AppComponent]
 })
