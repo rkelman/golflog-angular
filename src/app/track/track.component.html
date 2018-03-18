@@ -1,7 +1,22 @@
 <div class="col-md-6 col-md-offset-3">
   <h1>Hi {{currentUser.firstname}} {{currentUser.lastname}}!</h1>
-  resp (json): {{ currentUser | json }}
+  <!--resp (json): {{ currentUser | json }} -->
   <p>You're logged in with Angular 5!!</p>
-  
+ 
+        <div class="container">
+          <div class="stopWatch numbers">
+                {{formattedTime()}}
+            <div>
+              <button class="btn" (click)="startTimer()">Start</button>
+              <button class="btn" (click)="stopTimer()">Stop</button>
+              <button class="btn" (click)="resetTimer()">Reset</button>
+              <button class="btn" (click)="saveTimer()">Save</button><BR>
+              <select ng-model="Activity" ng-options="Putting, Chipping, Full Swing, Drills"></select>
+            </div>
+          </div>
+        <div class="log">
+          <!--  {{ log/1000 }} seconds -->
+          <!-- {{ options.elapsedTime | stopwatchTime }} -->
+        </div>
   <p><a [routerLink]="['/login']">Logout</a></p>
 </div>

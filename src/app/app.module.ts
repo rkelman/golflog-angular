@@ -12,6 +12,7 @@ import { TrackComponent } from './track/track.component';
 import { AuthService } from './auth.service';
 import { AlertService } from './alert.service';
 import { UserService } from './user.service';
+import { ActivityService } from './activity.service'
 //import { routes } from './app.routes';
 
 @NgModule({
@@ -38,7 +39,8 @@ import { UserService } from './user.service';
   providers: [
     AuthService,
     AlertService,
-    UserService
+    UserService, 
+    ActivityService
   ],
   bootstrap: [AppComponent]
 })
