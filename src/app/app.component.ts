@@ -10,7 +10,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 export class AppComponent {
   title = 'Golf Log Pro';
   //readonly ROOT_URL='http://golflog.daxhund.com';
-  readonly ROOT_URL='http://jsonplaceholder.typicode.com';
+  
   posts: any;
 
   constructor(private http: HttpClient) {}

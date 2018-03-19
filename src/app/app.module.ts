@@ -12,7 +12,8 @@ import { TrackComponent } from './track/track.component';
 import { AuthService } from './auth.service';
 import { AlertService } from './alert.service';
 import { UserService } from './user.service';
-import { ActivityService } from './activity.service'
+import { ActivityService } from './activity.service';
+import { AlertComponent } from './alert/alert.component';
 //import { routes } from './app.routes';
 
 @NgModule({
@@ -21,7 +22,8 @@ import { ActivityService } from './activity.service'
     LoginComponent,
     RegisterComponent,
     ResetComponent,
-    TrackComponent
+    TrackComponent,
+    AlertComponent
   ],
   imports: [
     BrowserModule,
