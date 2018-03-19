@@ -18,5 +18,5 @@
           <!--  {{ log/1000 }} seconds -->
           <!-- {{ options.elapsedTime | stopwatchTime }} -->
         </div>
-  <p><a [routerLink]="['/login']">Logout</a></p>
+  <p><a [routerLink]="['/login']" (click)="logout()">Logout</a></p>
 </div>

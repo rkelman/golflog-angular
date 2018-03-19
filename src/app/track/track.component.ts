@@ -38,7 +38,7 @@ export class TrackComponent implements OnInit {
 
   formattedTime(): string{
     return moment.utc(this.time - this.startAt).format('H:mm:ss');
-  }
+  }  
 
   resetTimer() {
     this.time = 0;
@@ -47,6 +47,11 @@ export class TrackComponent implements OnInit {
 
   isWatching(): boolean {
     return this.watcher != null;
+  }
+
+  logout() {
+    //remove user from local storage
+    localStorage.removeItem('currentUser');
   }
 
 /*
