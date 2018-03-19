@@ -33,8 +33,8 @@ export class LoginComponent implements OnInit {
               private alertService: AlertService) { }
 
   loginUser(user, password){
-    console.log('email: '+user);
-    console.log('password: '+password);
+    //console.log('email: '+user);
+    //console.log('password: '+password);
     this.reqString = '{ "email": "'+user+'", "password": "'+password+'" }';
     console.log(this.reqString);
 

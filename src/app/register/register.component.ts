@@ -23,15 +23,16 @@ export class RegisterComponent implements OnInit {
 
   registerUser(regfrm) {
     console.log(regfrm.value);
+    console.log(JSON.stringify(regfrm.value));
   
-    this.newUser = this.authService.registerUser(regfrm)
-    .subscribe(data => {
-      this.router.navigate(['/track']);
+    this.authService.registerUser(JSON.stringify(regfrm.value))
+      .subscribe(data => {
+        this.router.navigate(['/track']);
     },
     error => {
       this.alertService.error(error);
     });
 
-    console.log(this.newUser);
+    //console.log(this.newUser);
   }
 }
