@@ -11,7 +11,9 @@
               <button class="btn" (click)="stopTimer()">Stop</button>
               <button class="btn" (click)="resetTimer()">Reset</button>
               <button class="btn" (click)="saveTimer()">Save</button><BR>
-              <select ng-model="Activity" ng-options="Putting, Chipping, Full Swing, Drills"></select>
+              <select> 
+                  <option *ngFor="let act of activities" [value]="act">{{act}}</option>
+              </select>
             </div>
           </div>
         <div class="log">

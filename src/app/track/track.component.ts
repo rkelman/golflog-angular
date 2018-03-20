@@ -13,6 +13,7 @@ import * as moment from 'moment';
 export class TrackComponent implements OnInit {
   currentUser: User;
   users: User[] = [];
+  activities: string[] = [];
   
   private time = 0;
   private startAt = 0;
@@ -22,7 +23,9 @@ export class TrackComponent implements OnInit {
     this.currentUser = JSON.parse(localStorage.getItem('currentUser'));
   }
 
-  ngOnInit() {  }
+  ngOnInit() { 
+    this.activities = ["Putting", "Chipping", "Approach", "Full-Swing"];
+  }
 
   startTimer() {
     this.startAt = moment.now() - (this.time - this.startAt);
