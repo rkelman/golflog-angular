@@ -10,8 +10,8 @@
               <button class="btn" (click)="startTimer()">Start</button>
               <button class="btn" (click)="stopTimer()">Stop</button>
               <button class="btn" (click)="resetTimer()">Reset</button>
-              <button class="btn" (click)="saveTimer()">Save</button><BR>
-              <select> 
+              <button class="btn" (click)="saveTimer(selectAct.value)">Save</button><BR>
+              <select class="form-control" id="selectedAct" #selectAct> 
                   <option *ngFor="let act of activities" [value]="act">{{act}}</option>
               </select>
             </div>

@@ -57,11 +57,13 @@ export class TrackComponent implements OnInit {
     localStorage.removeItem('currentUser');
   }
 
-/*
   saveTimer(activity) {
-    submitActivity(this.currentUser.uid, this.formattedTime(), activity);
+    console.log('user id: '+this.currentUser.uid);
+    console.log('activity: '+activity);
+    console.log('elapsed time: '+this.formattedTime());
+    //submitActivity(this.currentUser.uid, this.formattedTime(), activity);
   }  
-
+/*
   private loadAllUsers() {
     this.userService.getAll().subscribe(users => { this.users = users; });
   }
