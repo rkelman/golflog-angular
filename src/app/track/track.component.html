@@ -1,7 +1,7 @@
 <div class="col-md-6 col-md-offset-3">
   <h1>Hi {{currentUser.firstname}} {{currentUser.lastname}}!</h1>
   <!--resp (json): {{ currentUser | json }} -->
-  <p>You're logged in with Angular 5!!</p>
+  <!--p>You're logged in with Angular 5!!</p-->
  
         <div class="container">
           <div class="stopWatch numbers">
@@ -9,8 +9,8 @@
             <div>
               <button class="btn" (click)="startTimer()" [disabled]="isRunning">Start</button>
               <button class="btn" (click)="stopTimer()" [disabled]="!isRunning">Stop</button>
-              <button class="btn" (click)="resetTimer()">Reset</button>
-              <button class="btn" (click)="saveTimer(selectAct.value)">Save</button><BR>
+              <button class="btn" (click)="resetTimer()" [disabled]="isRunning">Reset</button>
+              <button class="btn" (click)="saveTimer(selectAct.value)" [disabled]="isRunning">Save</button><BR>
               <select class="form-control" id="selectedAct" #selectAct> 
                   <option *ngFor="let act of activities" [value]="act">{{act}}</option>
               </select>

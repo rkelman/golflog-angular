@@ -14,9 +14,11 @@
     <a routerLink="/register" routerLinkActive="active" class="alc">Create an Account</a> | 
     <a routerLink="/reset" routerLinkActive="active" class="alc">Forgot Password?</a><br>
     <!--{{ logfrm.value | json }}-->
-req: {{ reqString | json }} <BR>
+<!-- troubleshooting
+  req: {{ reqString | json }} <BR>
 resp (json): {{ logResult | async | json }}<BR>
 resp (raw):   {{ logResult | async }}
+-->
 <!--email: {{ resultObj.email}} <BR>
   uid: {{ resultObj.uid}}-->
   </div>
