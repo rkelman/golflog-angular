@@ -9,13 +9,14 @@ export class ActivityService {
 
   constructor(private http: HttpClient) { }
 
-  postActivity(uid, token, elapsedTime, activity) {
+  postActivity(uid, elapsedTime, activity, token) {
     let activitySet = {
       uid: uid,
       token: token,
       elapsedTime: elapsedTime,
       activity: activity
     }
+    console.log(JSON.stringify(activitySet));
 
     return this.http.post<any>(this.ROOT_URL + "/activity.php", JSON.stringify(activitySet))
          .map(res => {

@@ -7,8 +7,8 @@
           <div class="stopWatch numbers">
                 {{formattedTime()}}
             <div>
-              <button class="btn" (click)="startTimer()">Start</button>
-              <button class="btn" (click)="stopTimer()">Stop</button>
+              <button class="btn" (click)="startTimer()" [disabled]="isRunning">Start</button>
+              <button class="btn" (click)="stopTimer()" [disabled]="!isRunning">Stop</button>
               <button class="btn" (click)="resetTimer()">Reset</button>
               <button class="btn" (click)="saveTimer(selectAct.value)">Save</button><BR>
               <select class="form-control" id="selectedAct" #selectAct> 
