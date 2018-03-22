@@ -16,6 +16,8 @@ export class TrackComponent implements OnInit {
   users: User[] = [];
   activities: string[] = [];
   isRunning: boolean;
+  message: {success: boolean, 
+            msg: string}; 
   
   private time = 0;
   private startAt = 0;
@@ -65,12 +67,14 @@ export class TrackComponent implements OnInit {
   }
 
   saveTimer(activity) {
-    console.log('user id: '+this.currentUser.uid);
-    console.log('activity: '+activity);
-    console.log('elapsed time: '+this.formattedTime());
-    console.log('token: '+this.currentUser.token);
+    //console.log('user id: '+this.currentUser.uid);
+    //console.log('activity: '+activity);
+    //console.log('elapsed time: '+this.formattedTime());
+    //console.log('token: '+this.currentUser.token);
     this.activityService.postActivity(this.currentUser.uid, this.formattedTime(), activity, this.currentUser.token)
-    .subscribe(data => { },
+    .subscribe(data => {
+      this.message = data;
+    },
     error => {
       this.alertService.error(error);
     });
