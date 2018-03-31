@@ -40,6 +40,7 @@ export class TrackComponent implements OnInit {
     this.watcher = Observable.timer(0,1000).subscribe(() => {
       this.time = moment.now();
     });
+    this.message.msg = "";
   }
 
   stopTimer(){
@@ -78,6 +79,7 @@ export class TrackComponent implements OnInit {
     error => {
       this.alertService.error(error);
     });
+    this.resetTimer();
   }  
 /*
   private loadAllUsers() {
