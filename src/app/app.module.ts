@@ -22,6 +22,7 @@ import { ReportComponent } from './report/report.component';
     AppComponent,
     LoginComponent,
     RegisterComponent,
+    ReportComponent,
     ResetComponent,
     TrackComponent,
     AlertComponent,
@@ -35,6 +36,7 @@ import { ReportComponent } from './report/report.component';
       {path: '', component: LoginComponent },
       {path: 'login', component: LoginComponent },
       {path: 'register', component: RegisterComponent },
+      {path: 'report', component: ReportComponent},
       {path: 'reset', component: ResetComponent },
       {path: 'track', component: TrackComponent },
       {path: '**', component: LoginComponent }
