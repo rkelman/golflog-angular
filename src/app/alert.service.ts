@@ -37,4 +37,8 @@ export class AlertService {
     return this.subject.asObservable();
   }
   
+  reset() {
+    //clear alert
+    this.subject.next();
+  }
 }

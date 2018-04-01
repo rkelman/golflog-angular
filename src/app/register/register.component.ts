@@ -21,7 +21,8 @@ export class RegisterComponent implements OnInit {
   ngOnInit() {
   }
 
-  registerUser(regfrm) {
+  registerUser(regfrm) { 
+    this.alertService.reset();
     console.log(regfrm.value);
     console.log(JSON.stringify(regfrm.value));
   
@@ -30,7 +31,7 @@ export class RegisterComponent implements OnInit {
         this.router.navigate(['/track']);
     },
     error => {
-      this.alertService.error(error);
+      this.alertService.error(error, false);
     });
 
     //console.log(this.newUser);
