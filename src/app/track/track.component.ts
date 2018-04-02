@@ -67,12 +67,12 @@ export class TrackComponent implements OnInit {
     localStorage.removeItem('currentUser');
   }
 
-  saveTimer(activity) {
+  saveTimer(activity, notes) {
     //console.log('user id: '+this.currentUser.uid);
     //console.log('activity: '+activity);
     //console.log('elapsed time: '+this.formattedTime());
     //console.log('token: '+this.currentUser.token);
-    this.activityService.postActivity(this.currentUser.uid, this.formattedTime(), activity, this.currentUser.token)
+    this.activityService.postActivity(this.currentUser.uid, this.formattedTime(), activity, notes, this.currentUser.token)
     .subscribe(data => {
       this.message = data;
     },

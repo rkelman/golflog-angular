@@ -12,10 +12,13 @@
               <button class="btn" (click)="stopTimer()" [disabled]="!isRunning">Stop</button>
               <button class="btn" (click)="resetTimer()" [disabled]="isRunning">Reset</button>
               <button class="btn" (click)="saveTimer(selectAct.value)" [disabled]="isRunning">Save</button><BR>
+              Activity:
               <select class="form-control" id="selectedAct" #selectAct> 
                   <option *ngFor="let act of activities" [value]="act">{{act}}</option>
               </select>
+              Notes: <textarea class="form-control" ng-model="myTexta" id="notes" #notes></textarea>
             </div>
+               
           </div>
         <div class="log">
           {{ message.msg }}
