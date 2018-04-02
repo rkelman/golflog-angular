@@ -22,7 +22,7 @@ export class ActivityService {
          .map(res => {
            //activity post is successful of success == tru
            if (res && res.success == true) {
-             //store user details & token in local storage
+             //if success then return result
              return(res);
            }
            return (res);
@@ -30,6 +30,28 @@ export class ActivityService {
   }
 
   getActivitySummary(uid, token, timePeriod){
-    return this.http.get<any>(this.ROOT_URL + "/activity.php")
+
+    return this.http.get<any>(this.ROOT_URL + "/activity.php?uid="+uid+"&type=summary&period="+timePeriod)
+        .map(res => {
+        //activity post is successful of success == tru
+        if (res && res.success == true) {
+          //if success then return result
+          return(res);
+        }
+        return (res);
+    });
+  }
+
+  getActivityList(uid, token, number){
+
+    return this.http.get<any>(this.ROOT_URL + "/activity.php?uid="+uid+"&type=list&number="+number)
+        .map(res => {
+        //activity post is successful of success == tru
+        if (res && res.success == true) {
+          //if success then return result
+          return(res);
+        }
+        return (res);
+    });
   }
 }
