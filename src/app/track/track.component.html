@@ -11,7 +11,7 @@
               <button class="btn" (click)="startTimer()" [disabled]="isRunning">Start</button>
               <button class="btn" (click)="stopTimer()" [disabled]="!isRunning">Stop</button>
               <button class="btn" (click)="resetTimer()" [disabled]="isRunning">Reset</button>
-              <button class="btn" (click)="saveTimer(selectAct.value)" [disabled]="isRunning">Save</button><BR>
+              <button class="btn" (click)="saveTimer(selectAct.value, notes.value)" [disabled]="isRunning">Save</button><BR>
               Activity:
               <select class="form-control" id="selectedAct" #selectAct> 
                   <option *ngFor="let act of activities" [value]="act">{{act}}</option>
