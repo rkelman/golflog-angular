@@ -36,6 +36,19 @@ export class AuthService implements OnInit {
          });
   }
 
+  resetPass(user) {
+    return this.http.post<any>(this.ROOT_URL + "/reset.php", user)
+      .map(res => {
+        //activity post is successful of success == tru
+        if (res && res.success == true) {
+          //if success then return result
+          return(res);
+        }
+        return (res);
+      });
+  }
+
+
   logout() {
     //remove user from local storage
     localStorage.removeItem('currentUser');

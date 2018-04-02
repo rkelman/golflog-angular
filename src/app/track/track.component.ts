@@ -68,11 +68,11 @@ export class TrackComponent implements OnInit {
   }
 
   saveTimer(activity, notes) {
-    console.log('user id: '+this.currentUser.uid);
-    console.log('activity: '+activity);
-    console.log('notes: '+notes);
-    console.log('elapsed time: '+this.formattedTime());
-    console.log('token: '+this.currentUser.token);
+    //console.log('user id: '+this.currentUser.uid);
+    //console.log('activity: '+activity);
+    //console.log('notes: '+notes);
+    //console.log('elapsed time: '+this.formattedTime());
+    //console.log('token: '+this.currentUser.token);
     this.activityService.postActivity(this.currentUser.uid, this.formattedTime(), activity, notes, this.currentUser.token)
     .subscribe(data => {
       this.message = data;
