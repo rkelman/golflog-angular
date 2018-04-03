@@ -49,27 +49,10 @@ export class ActivityService {
     });
   */
   getActivitySummary(uid, token, timePeriod){
-    return [
-      { "type": "Putting",
-        "subType": "", 
-        "elapsedTime": "02:08:00",
-        "count":5
-      }, 
-      { "type": "Approach",
-        "subType": "", 
-        "elapsedTime": "00:59:02",
-        "count":3
-      },
-      { "type": "Full-Swing", 
-        "subType": "",
-        "elapsedTime": "00:12:43", 
-        "count":1
-      }, 
-      { "type": "Chipping",
-        "subType": "",
-        "elapsedTime": "00:05:20", 
-        "count": 1
-      }];
+    console.log("url: "+this.ROOT_URL + "/activity.php?uid="+uid+"&type=summary");
+
+    return this.http.get<Activity[]>(this.ROOT_URL + "/activity.php?uid="+uid+"&type=summary");
+
   }
 
   

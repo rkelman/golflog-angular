@@ -23,7 +23,9 @@ export class ReportComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.summary = this.activityService.getActivitySummary(this.currentUser.uid, this.currentUser.token, 'month');
+    this.activityService.getActivitySummary(this.currentUser.uid, this.currentUser.token, 'month')
+    .subscribe(data => this.summary = data);
+
     this.activityService.getActivityList(this.currentUser.uid, this.currentUser.token, 10)
       .subscribe(data => this.activities = data);
   }
