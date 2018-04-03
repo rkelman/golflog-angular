@@ -33,21 +33,7 @@ export class ActivityService {
            return (res);
          });
   }
-/*
-  getActivitySummary(uid, token, timePeriod){
 
-    return this.http.get<Activity>(this.ROOT_URL + "/activity.php?uid="+uid+"&type=summary&period="+timePeriod)
-        .map(res => {
-        //activity post is successful of success == tru
-        //if (res && res.success == true) {
-        if (res) {
-          //if success then return result
-          console.log(res);
-          return(res);
-        }
-        return (res);
-    });
-  */
   getActivitySummary(uid, token, timePeriod){
     console.log("url: "+this.ROOT_URL + "/activity.php?uid="+uid+"&type=summary");
 
