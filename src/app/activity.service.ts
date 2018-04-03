@@ -78,39 +78,7 @@ export class ActivityService {
 
     //return this.http.get<Activity[]>(this.fakeURL);
     return this.http.get<Activity[]>(this.ROOT_URL + "/activity.php?uid="+uid+"&type=list&number="+number);
-        /*.map(res => {
-        //activity post is successful of success == tru
-        if (res) {
-          //if success then return result
-          return(res);
-        }
-        return (res);*/
+        
   }
   
-/*
-  getActivityList(uid, token, number):Activity[] {
-    console.log("url: "+this.ROOT_URL + "/activity.php?uid="+uid+"&type=list&number="+number);
-    return [
-      { "type": "Putting",
-        "subType": null, 
-        "elapsedTime": "00:08:00", 
-        "practiceDateTime": "2018-04-02 20:40:49", 
-        "notes": null }, 
-      { "type": "Putting",
-        "subType": null, 
-        "elapsedTime": "00:09:02", 
-        "practiceDateTime": "2018-04-02 20:31:41", 
-        "notes": "2x 4+" },
-      { "type": "Putting", 
-        "subType": null,
-        "elapsedTime": "00:12:43", 
-        "practiceDateTime": "2018-04-02 20:22:15", 
-        "notes": null }, 
-      { "type": "Approach",
-        "subType": null,
-        "elapsedTime": "00:05:20", 
-        "practiceDateTime": "2018-04-02 19:29:43", 
-        "notes": "contest w/ Sean" }
-    ];
-  }*/
 }
