@@ -1,9 +1,42 @@
   <p><a routerLink="/track" routerLinkActive="active" class="alc">Track Practice</a></p>
   <div class="container">
     <div class="jumbotron">
-      Summary:
-      
-      Listing:
-    
+      Summary:<BR>
+        <table class="table">
+          <thead class="thead-inverse">
+          <tr>
+              <th class="text-center">Type</th>
+              <th class="text-center">Elapsed Time</th>
+              <th class="text-center">Count</th>
+          </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let sum of summary">
+              <td class="text-center" style="width: 80px;">{{sum.type}}</td>
+              <td class="text-center" style="width: 120px;">{{sum.elapsedTime}}</td>
+              <td class="text-center" style="width: 20px;">{{sum.count}}</td>
+            </tr>
+          </tbody>
+        </table>
+      Listing:<BR>
+        <table class="table">
+          <thead class="thead-inverse">
+          <tr>
+              <th class="text-center">Practice Date</th>
+              <th class="text-center">Type</th>
+              <th class="text-center">Elapsed Time</th>
+              <th class="text-center">Notes</th>
+          </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let act of activities">
+              <td class="text-center" style="width: 120px;">{{act.practiceDateTime}}</td>
+              <td class="text-center" style="width: 15px;">{{act.type}}</td>
+              <td class="text-center" style="width: 200px;">{{act.elapsedTime}}</td>
+              <td class="text-center">{{act.notes}}</td>
+            </tr>
+          </tbody>
+        </table>
+      {{ activities | json }}
     </div>
   </div>  
