@@ -4,7 +4,7 @@ import { UserService } from '../user.service';
 import { ActivityService } from '../activity.service';
 import { AlertService } from '../alert.service';
 import { Observable, Subscription } from "rxjs";
-import { Activity } from '../activity';
+//import { Activity } from '../activity';
 
 @Component({
   selector: 'app-report',
@@ -23,8 +23,9 @@ export class ReportComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.activities = this.activityService.getActivityList(this.currentUser.uid, this.currentUser.token, 10);
     this.summary = this.activityService.getActivitySummary(this.currentUser.uid, this.currentUser.token, 'month');
+    this.activityService.getActivityList(this.currentUser.uid, this.currentUser.token, 10)
+      .subscribe(data => this.activities = data);
   }
 
   getSummary() {
