@@ -13,11 +13,12 @@ export class ActivityService {
 
   constructor(private http: HttpClient) { }
 
-  postActivity(uid, elapsedTime, activity, notes, token) {
+  postActivity(uid, elapsedTime, activity, notes, startTime, token) {
     let activitySet = {
       uid: uid,
       token: token,
       elapsedTime: elapsedTime,
+      startTime: startTime,
       activity: activity,
       notes: notes
     }

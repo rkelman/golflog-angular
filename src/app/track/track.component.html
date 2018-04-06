@@ -2,7 +2,6 @@
   <h1>Hi {{currentUser.firstname}} {{currentUser.lastname}}!</h1>
   <!--resp (json): {{ currentUser | json }} -->
   <p><a routerLink="/report" routerLinkActive="active" class="alc">See Reports</a></p>
-  <!--p>You're logged in with Angular 5!!</p-->
  
         <div class="container">
           <div class="stopWatch numbers">
@@ -17,11 +16,11 @@
                   <option *ngFor="let act of activities" [value]="act">{{act}}</option>
               </select>
               Notes: <textarea class="form-control" ng-model="myTexta" id="notes" #notes></textarea>
-            </div>
-               
+            </div>   
           </div>
+          <!--Start: {{ startTime | date:'y-MM-dd hh:mm:ss'}}-->
         <div class="log">
-          {{ message.msg }}
+          {{ message.msg }} 
           <!--  {{ log/1000 }} seconds -->
           <!-- {{ options.elapsedTime | stopwatchTime }} -->
         </div>

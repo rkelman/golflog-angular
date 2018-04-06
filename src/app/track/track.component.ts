@@ -1,10 +1,12 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
+import { DatePipe } from '@angular/common';
 import { User } from '../user';
 import { UserService } from '../user.service';
 import { ActivityService } from '../activity.service';
 import { AlertService } from '../alert.service';
 import { Observable, Subscription } from "rxjs";
 import * as moment from 'moment';
+import { format } from 'path';
 
 @Component({
   selector: 'app-track',
@@ -21,11 +23,13 @@ export class TrackComponent implements OnInit {
   
   private time = 0;
   private startAt = 0;
+  private startTime:string = null;
   private watcher: Subscription = null;
   
   constructor(private userService: UserService,
               private activityService: ActivityService,
-              private alertService: AlertService) {
+              private alertService: AlertService, 
+              public datePipe: DatePipe) {
     this.currentUser = JSON.parse(localStorage.getItem('currentUser'));
   }
 
@@ -36,6 +40,11 @@ export class TrackComponent implements OnInit {
 
   startTimer() {
     this.isRunning = true;
+    if (this.formattedTime() == '0:00:00') {
+      let startx = Date.now();
+      this.startTime = this.datePipe.transform(startx, 'y-MM-dd hh:mm:ss');
+      console.log('Start: '+this.startTime);
+    }
     this.startAt = moment.now() - (this.time - this.startAt);
     this.watcher = Observable.timer(0,1000).subscribe(() => {
       this.time = moment.now();
@@ -56,6 +65,7 @@ export class TrackComponent implements OnInit {
   resetTimer() {
     this.time = 0;
     this.startAt = 0;
+    this.startTime = null;
   }
 
   isWatching(): boolean {
@@ -73,7 +83,7 @@ export class TrackComponent implements OnInit {
     //console.log('notes: '+notes);
     //console.log('elapsed time: '+this.formattedTime());
     //console.log('token: '+this.currentUser.token);
-    this.activityService.postActivity(this.currentUser.uid, this.formattedTime(), activity, notes, this.currentUser.token)
+    this.activityService.postActivity(this.currentUser.uid, this.formattedTime(), activity, notes, this.startTime, this.currentUser.token)
     .subscribe(data => {
       this.message = data;
     },

@@ -1,5 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { DatePipe } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule, HttpHeaders } from '@angular/common/http';
 import { RouterModule, Routes } from '@angular/router';
@@ -46,7 +47,8 @@ import { ReportComponent } from './report/report.component';
     AuthService,
     AlertService,
     UserService, 
-    ActivityService
+    ActivityService,
+    DatePipe
   ],
   bootstrap: [AppComponent]
 })
