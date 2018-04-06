@@ -1,6 +1,8 @@
 .stopWatch {
 	padding: 5px;
-	background: linear-gradient(top, #222, #eee);
+	/*background: linear-gradient(to bottom, rgb(19, 168, 98), #eee);*/
+	background: linear-gradient(to bottom, grey, darkgrey);*/
+	/*background: grey;*/
 	border: 7px solid #efefef;
 	border-radius: 5px;
     display: inline-block;

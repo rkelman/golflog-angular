@@ -6,7 +6,7 @@ import { ActivityService } from '../activity.service';
 import { AlertService } from '../alert.service';
 import { Observable, Subscription } from "rxjs";
 import * as moment from 'moment';
-import { format } from 'path';
+//import { format } from 'path';
 
 @Component({
   selector: 'app-track',
@@ -31,6 +31,8 @@ export class TrackComponent implements OnInit {
               private alertService: AlertService, 
               public datePipe: DatePipe) {
     this.currentUser = JSON.parse(localStorage.getItem('currentUser'));
+    this.message = {success: true, 
+                    msg: ""};
   }
 
   ngOnInit() { 
@@ -49,7 +51,6 @@ export class TrackComponent implements OnInit {
     this.watcher = Observable.timer(0,1000).subscribe(() => {
       this.time = moment.now();
     });
-    this.message.msg = "";
   }
 
   stopTimer(){
