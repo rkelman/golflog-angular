@@ -23,27 +23,26 @@ export class ReportComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.activityService.getActivitySummary(this.currentUser.uid, this.currentUser.token, 'month')
+    this.getList();
+    this.getSummary();
+  }
+
+  deleteActivity(activityID) {
+    this.activityService.deleteActivity(activityID, this.currentUser.uid)
     .subscribe(data => this.summary = data);
 
+    this.getList();
+
+    this.getSummary();
+  }
+
+  getList(): void{
     this.activityService.getActivityList(this.currentUser.uid, this.currentUser.token, 10)
       .subscribe(data => this.activities = data);
   }
 
   getSummary() {
-
-  }
-
-  getList(): void{
-/*    this.activityService.getActivityList(this.currentUser.uid, this.currentUser.token, 10)
-      .subscribe(resp => 
-      {
-          this.activities = resp;
-          console.log(this.activities);
-          console.log(JSON.parse(resp))
-      },
-        error => {
-          this.alertService.error(error);
-      });*/
+    this.activityService.getActivitySummary(this.currentUser.uid, this.currentUser.token, 'month')
+    .subscribe(data => this.summary = data);
   }
 }

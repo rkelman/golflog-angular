@@ -39,7 +39,6 @@ export class ActivityService {
     console.log("url: "+this.ROOT_URL + "/activity.php?uid="+uid+"&type=summary");
 
     return this.http.get<Activity[]>(this.ROOT_URL + "/activity.php?uid="+uid+"&type=summary");
-
   }
 
   
@@ -47,8 +46,26 @@ export class ActivityService {
     console.log("url: "+this.ROOT_URL + "/activity.php?uid="+uid+"&type=list&number="+number);
 
     //return this.http.get<Activity[]>(this.fakeURL);
-    return this.http.get<Activity[]>(this.ROOT_URL + "/activity.php?uid="+uid+"&type=list&number="+number);
-        
+    return this.http.get<Activity[]>(this.ROOT_URL + "/activity.php?uid="+uid+"&type=list&number="+number);    
   }
-  
+
+  deleteActivity(activityID, uid) {
+    let activitySet = {
+      uid: uid,
+      activityID: activityID,
+    }
+
+    console.log(JSON.stringify(activitySet));
+
+    return this.http.delete<any>(this.ROOT_URL + "/activity.php?uid="+uid+"&ActivityID="+activityID)
+         .map(res => {
+           //activity post is successful of success == tru
+           if (res && res.success == true) {
+             //if success then return result
+             return(res);
+           }
+           return (res);
+         });
+  }
+
 }
