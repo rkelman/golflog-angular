@@ -57,11 +57,12 @@ export class ActivityService {
     }
 
     console.log(JSON.stringify(activitySet));
+    console.log(this.ROOT_URL + "/activity.php?uid="+uid+"&activityID="+activityID);
 
     return this.http.delete<any>(this.ROOT_URL + "/activity.php?uid="+uid+"&activityID="+activityID)
          .map(res => {
            //activity post is successful of success == tru
-           if (res && res.success == true) {
+           if (res) {
              //if success then return result
              return(res);
            }
