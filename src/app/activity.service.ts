@@ -9,7 +9,7 @@ import 'rxjs/add/operator/catch';
 export class ActivityService {
   readonly ROOT_URL= environment.api_url;
   results: Object[];
-  private fakeURL: string = "/assets/mock-list.json";
+  //private fakeURL: string = "/assets/mock-list.json";
 
   constructor(private http: HttpClient) { }
 
@@ -22,6 +22,7 @@ export class ActivityService {
       activity: activity,
       notes: notes
     }
+    console.log(this.ROOT_URL + "/activity.php")
     console.log(JSON.stringify(activitySet));
 
     return this.http.post<any>(this.ROOT_URL + "/activity.php", JSON.stringify(activitySet))
@@ -57,7 +58,7 @@ export class ActivityService {
 
     console.log(JSON.stringify(activitySet));
 
-    return this.http.delete<any>(this.ROOT_URL + "/activity.php?uid="+uid+"&ActivityID="+activityID)
+    return this.http.delete<any>(this.ROOT_URL + "/activity.php?uid="+uid+"&activityID="+activityID)
          .map(res => {
            //activity post is successful of success == tru
            if (res && res.success == true) {

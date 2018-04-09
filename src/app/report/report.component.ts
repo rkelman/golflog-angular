@@ -16,10 +16,14 @@ export class ReportComponent implements OnInit {
   //activities: Activity[];
   activities = [];
   summary = [];
+  message: {success: boolean, 
+    msg: string};
 
   constructor(private activityService: ActivityService,
               private alertService: AlertService) { 
       this.currentUser = JSON.parse(localStorage.getItem('currentUser'));
+      this.message = {success: true, 
+        msg: ""};
   }
 
   ngOnInit() {
@@ -29,7 +33,7 @@ export class ReportComponent implements OnInit {
 
   deleteActivity(activityID) {
     this.activityService.deleteActivity(activityID, this.currentUser.uid)
-    .subscribe(data => this.summary = data);
+    .subscribe(data => this.message = data);
 
     this.getList();
 

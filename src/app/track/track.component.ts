@@ -17,13 +17,14 @@ export class TrackComponent implements OnInit {
   currentUser: User;
   users: User[] = [];
   activities: string[] = [];
+  activitySet: any;
   isRunning: boolean;
   message: {success: boolean, 
             msg: string}; 
   
   private time = 0;
   private startAt = 0;
-  private startTime:string = null;
+  public startTime:string = null;
   private watcher: Subscription = null;
   
   constructor(private userService: UserService,
@@ -43,8 +44,10 @@ export class TrackComponent implements OnInit {
   startTimer() {
     this.isRunning = true;
     if (this.formattedTime() == '0:00:00') {
+      this.message = {success: true, 
+        msg: ""};
       let startx = Date.now();
-      this.startTime = this.datePipe.transform(startx, 'y-MM-dd hh:mm:ss');
+      this.startTime = this.datePipe.transform(startx, 'y-MM-dd HH:mm:ss');
       console.log('Start: '+this.startTime);
     }
     this.startAt = moment.now() - (this.time - this.startAt);
@@ -84,6 +87,15 @@ export class TrackComponent implements OnInit {
     //console.log('notes: '+notes);
     //console.log('elapsed time: '+this.formattedTime());
     //console.log('token: '+this.currentUser.token);
+    this.activitySet = {
+      uid: this.currentUser.uid,
+      token: this.currentUser.token,
+      elapsedTime: this.formattedTime(),
+      startTime: this.startTime,
+      activity: activity,
+      notes: notes
+    }
+
     this.activityService.postActivity(this.currentUser.uid, this.formattedTime(), activity, notes, this.startTime, this.currentUser.token)
     .subscribe(data => {
       this.message = data;

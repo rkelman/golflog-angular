@@ -21,6 +21,8 @@
           <!--Start: {{ startTime | date:'y-MM-dd hh:mm:ss'}}-->
         <div class="log">
           {{ message.msg }} 
+          {{ startTime }}
+          {{ activitySet | json }}
           <!--  {{ log/1000 }} seconds -->
           <!-- {{ options.elapsedTime | stopwatchTime }} -->
         </div>

@@ -49,6 +49,9 @@ export class LoginComponent implements OnInit {
   }
 
   ngOnInit() {
+    if (JSON.parse(localStorage.getItem('currentUser'))) {
+      this.router.navigate(['/track']);
+    }
   }
 
 }
