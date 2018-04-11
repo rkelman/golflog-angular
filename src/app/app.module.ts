@@ -16,6 +16,7 @@ import { UserService } from './user.service';
 import { ActivityService } from './activity.service';
 import { AlertComponent } from './alert/alert.component';
 import { ReportComponent } from './report/report.component';
+import { ListingComponent } from './listing/listing.component';
 //import { routes } from './app.routes';
 
 @NgModule({
@@ -27,7 +28,8 @@ import { ReportComponent } from './report/report.component';
     ResetComponent,
     TrackComponent,
     AlertComponent,
-    ReportComponent
+    ReportComponent,
+    ListingComponent
   ],
   imports: [
     BrowserModule,
