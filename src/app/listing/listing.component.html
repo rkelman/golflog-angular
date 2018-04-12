@@ -1,3 +1,29 @@
-<p>
-  listing works!
-</p>
+<p><a routerLink="/track" routerLinkActive="active" class="alc">Track Practice</a></p>
+<div class="container">
+  <div class="jumbotron">
+    Listing:<BR>
+      {{ message.msg }}
+      <table class="table">
+        <thead class="thead-inverse">
+        <tr>
+            <th class="text-center" style="width: 160px;">Practice Date</th>
+            <th class="text-center">Type</th>
+            <th class="text-center">Elapsed Time</th>
+            <th class="text-center">Notes</th>
+            <th class="text-center"></th>
+        </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let act of activities">
+            <td class="text-center" style="width: 160px;">{{act.practiceDateTime}}</td>
+            <td class="text-center" style="width: 15px;">{{act.type}}</td>
+            <td class="text-center" style="width: 200px;">{{act.elapsedTime}}</td>
+            <td class="text-center" style="width: 300px;">{{act.notes}}</td>
+            <td class="text-center"><img src="assets/delete.png" height="30" width="30" (click)="deleteActivity(act.activityID)"></td>
+          </tr>
+        </tbody>
+      </table>
+  </div>
+  &copy; Golflog 2018
+</div>  
+
