@@ -1,7 +1,10 @@
 <p><a routerLink="/track" routerLinkActive="active" class="alc">Track Practice</a></p>
 <div class="container">
   <div class="jumbotron">
-    Listing:<BR>
+    Listing:&nbsp;&nbsp;&nbsp;&nbsp;show: 
+    <select class="form-control" id="countAct" #countAct (change)="getList(countAct.value)"> 
+      <option *ngFor="let count of counts" [value]="count">{{count}}</option>
+    </select>
       {{ message.msg }}
       <table class="table">
         <thead class="thead-inverse">
