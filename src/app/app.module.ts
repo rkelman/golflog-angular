@@ -40,6 +40,7 @@ import { ListingComponent } from './listing/listing.component';
       {path: 'login', component: LoginComponent },
       {path: 'register', component: RegisterComponent },
       {path: 'report', component: ReportComponent},
+      {path: 'listing', component: ListingComponent },
       {path: 'reset', component: ResetComponent },
       {path: 'track', component: TrackComponent },
       {path: '**', component: LoginComponent }
