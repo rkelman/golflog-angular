@@ -12,13 +12,17 @@ import { Observable, Subscription } from "rxjs";
 })
 export class ListingComponent implements OnInit {
   currentUser: User;
-  counts
+  counts = [];
   activities = [];
   message: {success: boolean, 
     msg: string};
 
   constructor(private activityService: ActivityService,
-    private alertService: AlertService) { }
+    private alertService: AlertService) {
+      this.currentUser = JSON.parse(localStorage.getItem('currentUser'));
+      this.message = {success: true, 
+        msg: ""};
+  }
 
   ngOnInit() {
     this.counts = ["10", "20", "40"];
@@ -33,7 +37,8 @@ export class ListingComponent implements OnInit {
   }
 
   getList(count: number): void{
-    this.activityService.getActivityList(this.currentUser.uid, this.currentUser.token, 10)
+    console.log('getList: '+count);
+    this.activityService.getActivityList(this.currentUser.uid, this.currentUser.token, count)
       .subscribe(data => this.activities = data);
   }
 
