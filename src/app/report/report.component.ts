@@ -13,7 +13,7 @@ import { Observable, Subscription } from "rxjs";
 })
 export class ReportComponent implements OnInit {
   currentUser: User;
-  //activities: Activity[];
+  periods = [];
   activities = [];
   summary = [];
   message: {success: boolean, 
@@ -27,8 +27,9 @@ export class ReportComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.getList();
-    this.getSummary();
+    this.periods = ["week", "month", "quarter", "year"];
+    //this.getList();
+    this.getSummary("month");
   }
 
   deleteActivity(activityID) {
@@ -37,7 +38,7 @@ export class ReportComponent implements OnInit {
 
     this.getList();
 
-    this.getSummary();
+    //this.getSummary();
   }
 
   getList(): void{
@@ -45,8 +46,8 @@ export class ReportComponent implements OnInit {
       .subscribe(data => this.activities = data);
   }
 
-  getSummary() {
-    this.activityService.getActivitySummary(this.currentUser.uid, this.currentUser.token, 'month')
+  getSummary(period) {
+    this.activityService.getActivitySummary(this.currentUser.uid, this.currentUser.token, period)
     .subscribe(data => this.summary = data);
   }
 }

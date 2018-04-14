@@ -37,9 +37,9 @@ export class ActivityService {
   }
 
   getActivitySummary(uid, token, timePeriod){
-    console.log("url: "+this.ROOT_URL + "/activity.php?uid="+uid+"&type=summary");
+    console.log("url: "+this.ROOT_URL + "/activity.php?uid="+uid+"&type=summary&period="+timePeriod);
 
-    return this.http.get<Activity[]>(this.ROOT_URL + "/activity.php?uid="+uid+"&type=summary");
+    return this.http.get<Activity[]>(this.ROOT_URL + "/activity.php?uid="+uid+"&type=summary&period="+timePeriod);
   }
 
   

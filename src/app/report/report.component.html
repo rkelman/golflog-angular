@@ -2,7 +2,19 @@
   <p><a routerLink="/listing" routerLinkActive="active" class="alc">See New Listing</a></p>
   <div class="container">
     <div class="jumbotron">
-      Summary:<BR>
+        <table class="table">
+            <tr>
+              <td align="right">
+        <h2>Practice Summary</h2>
+              </td>
+              <td align="right">
+        show:</td>
+        <td style="width: 30%;"><select class="form-control" id="actPeriod" #actPeriod (change)="getSummary(actPeriod.value)" [style.width]="'40%'"> 
+          <option *ngFor="let i of periods" [value]="i">{{i}}</option>
+        </select>
+            </td>
+         </tr>
+         </table>
         <table class="table">
           <thead class="thead-inverse">
           <tr>
@@ -19,7 +31,7 @@
             </tr>
           </tbody>
         </table>
-      Listing:<BR>
+      <!--Listing:<BR>
         {{ message.msg }}
         <table class="table">
           <thead class="thead-inverse">
@@ -40,7 +52,7 @@
               <td class="text-center"><img src="assets/delete.png" height="30" width="30" (click)="deleteActivity(act.activityID)"></td>
             </tr>
           </tbody>
-        </table>
+        </table>-->
     </div>
     &copy; Golflog 2018
   </div>  
