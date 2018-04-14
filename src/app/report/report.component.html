@@ -10,7 +10,7 @@
               <td align="right">
         show:</td>
         <td style="width: 30%;"><select class="form-control" id="actPeriod" #actPeriod (change)="getSummary(actPeriod.value)" [style.width]="'40%'"> 
-          <option *ngFor="let i of periods" [value]="i">{{i}}</option>
+          <option *ngFor="let period of periods" [value]="period" [selected]="period=='month'">{{period}}</option>
         </select>
             </td>
          </tr>
