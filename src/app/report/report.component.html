@@ -9,12 +9,15 @@
               </td>
               <td align="right">
         show:</td>
-        <td style="width: 30%;"><select class="form-control" id="actPeriod" #actPeriod (change)="getSummary(actPeriod.value)" [style.width]="'40%'"> 
+        <td style="width: 110px;"><select class="form-control" id="actPeriod" #actPeriod (change)="getSummary(actPeriod.value)" [style.width]="'110px'"> 
           <option *ngFor="let period of periods" [value]="period" [selected]="period=='month'">{{period}}</option>
         </select>
             </td>
          </tr>
          </table>
+         <div [hidden]="!chart">
+           <canvas id="canvas">{{ chart }}</canvas>
+         </div>
         <table class="table">
           <thead class="thead-inverse">
           <tr>

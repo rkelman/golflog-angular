@@ -3,5 +3,6 @@ export interface Activity {
   subType: String,
   elapsedTime: String, 
   practiceDateTime: String, 
+  sumRawTime: Number,
   notes: String
 }
