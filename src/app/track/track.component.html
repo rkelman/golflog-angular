@@ -18,13 +18,10 @@
               Notes: <textarea class="form-control" ng-model="myTexta" id="notes" #notes></textarea>
             </div>   
           </div>
-          <!--Start: {{ startTime | date:'y-MM-dd hh:mm:ss'}}-->
         <div class="log">
           {{ message.msg }} 
-          {{ startTime }}
-          {{ activitySet | json }}
-          <!--  {{ log/1000 }} seconds -->
-          <!-- {{ options.elapsedTime | stopwatchTime }} -->
+          <!--{{ startTime }}-->
+          <!--{{ activitySet | json }}-->
         </div>
   <p><a [routerLink]="['/login']" (click)="logout()">Logout</a></p>
   <BR>
