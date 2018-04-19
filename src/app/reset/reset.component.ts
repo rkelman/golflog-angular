@@ -11,18 +11,24 @@ import { AlertService } from '../alert.service';
 })
 export class ResetComponent implements OnInit {
   message: {success: boolean, 
-            msg: string};
+            msg: string
+            step: Number };
 
   constructor(private authService: AuthService,
               private alertService: AlertService) { }
 
   ngOnInit() {
+    this.message = { 
+      success: true,
+      msg: '',
+      step: 0
+    }
   }
 
   resetPassword(form) {
-    console.log(form.value);
+    console.log(JSON.stringify(form.value));
 
-    this.authService.resetPass(JSON.stringify(form.value))
+    this.authService.resetPass(form.value)
       .subscribe(data => {
         this.message = data;
     },
