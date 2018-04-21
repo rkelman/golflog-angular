@@ -36,12 +36,16 @@ export class AuthService implements OnInit {
          });
   }
 
-  resetPass(user) {
-    return this.http.post<any>(this.ROOT_URL + "/reset.php", JSON.stringify(user))
+  resetPass(userJson) {
+    
+    console.log(userJson);
+
+    return this.http.post<any>(this.ROOT_URL + "/reset.php", userJson)
       .map(res => {
         //activity post is successful of success == tru
         if (res && res.success == true) {
           //if success then return result
+          console.log('res: '+JSON.stringify(res));
           return(res);    
         }
         return (res);

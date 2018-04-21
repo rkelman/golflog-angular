@@ -25,16 +25,16 @@ export class ResetComponent implements OnInit {
     }
   }
 
-  resetPassword(form) {
-    console.log(JSON.stringify(form.value));
+  resetPassword(resetform) {
+    console.log('email: '+JSON.stringify(resetform));
 
-    this.authService.resetPass(form.value)
+    this.authService.resetPass(JSON.stringify(resetform))
       .subscribe(data => {
         this.message = data;
     },
     error => {
-      this.alertService.error(error, false);
+      this.alertService.error(error);
     });  
   }
-
+ 
 }
