@@ -18,6 +18,7 @@ import { ActivityService } from './activity.service';
 import { AlertComponent } from './alert/alert.component';
 import { ReportComponent } from './report/report.component';
 import { ListingComponent } from './listing/listing.component';
+import { NavbarComponent } from './navbar/navbar.component';
 //import { routes } from './app.routes';
 
 @NgModule({
@@ -30,7 +31,8 @@ import { ListingComponent } from './listing/listing.component';
     TrackComponent,
     AlertComponent,
     ReportComponent,
-    ListingComponent
+    ListingComponent,
+    NavbarComponent
   ],
   imports: [
     BrowserModule,
