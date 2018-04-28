@@ -5,6 +5,7 @@ import { FormsModule } from '@angular/forms';
 import { HttpClientModule, HttpHeaders } from '@angular/common/http';
 import { RouterModule, Routes } from '@angular/router';
 import { Chart } from 'chart.js';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 import { AppComponent } from './app.component';
 import { LoginComponent } from './login/login.component';
@@ -38,6 +39,7 @@ import { NavbarComponent } from './navbar/navbar.component';
     BrowserModule,
     FormsModule,
     HttpClientModule,
+    NgbModule.forRoot(),
     RouterModule.forRoot([
       {path: '', component: LoginComponent },
       {path: 'login', component: LoginComponent },

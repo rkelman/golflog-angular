@@ -1,9 +1,17 @@
-<nav class="navbar navbar-default">
-  <div class="container-fluid">
-    <ul class="navbar navbar-nav">
-      <li><a [routerLink]="['/report']">Reports</a></li>
-      <li><a [routerLink]="['/track']">Track</a></li>
-      <li><a [routerLink]="['/listing']">Listings</a></li>
-    </ul>
+
+<div class="container-fluid">
+    <ul class="nav nav-tabs" role="tablist">
+        <nav class="navbar navbar-light bg-light">
+            <span class="navbar-brand mb-0 h1">{{currentUser.firstname}}@golflog</span>
+        </nav>
+        <li class="nav-item" >
+          <a class="nav-link" [routerLinkActive]="['active']" [routerLink]="['/report']" role="tab" data-toggle="tab">Reports</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" [routerLinkActive]="['active']" [routerLink]="['/track']" role="tab" data-toggle="tab">Track</a>
+        </li>
+        <li class="nav-item" >
+          <a class="nav-link" [routerLinkActive]="['active']" [routerLink]="['/listing']" role="tab" data-toggle="tab">Listings</a>
+        </li>
+      </ul>
   </div>
-</nav>
