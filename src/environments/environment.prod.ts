@@ -1,4 +1,4 @@
 export const environment = {
   production: true,
-  api_url: 'https://golflog.daxhund.com/api'
+  api_url: 'https://golflog.pro/api'
 };

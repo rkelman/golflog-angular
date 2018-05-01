@@ -23,12 +23,8 @@
   </div>
   <button type="submit" name="registerButton" class="btn btn-success" [disabled]="regfrm.invalid" (onClick)="registerUser(regfrm)">Register</button>
 </form>
-req: {{ regfrm.value | json }} <BR>
-  req: {{ regfrm.value }} <BR>
 <a routerLink="/login" routerLinkActive="active" class="alc">Return to Login</a> | 
 <a routerLink="/reset" routerLinkActive="active" class="alc">Forgot Password?</a><br>
-<!--{{ regfrm.value | json }} -->
-<!--{{ newUser | async | json }} -->
 </div>
 &copy; Golflog 2018
 </div>>
