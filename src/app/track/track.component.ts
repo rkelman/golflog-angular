@@ -37,7 +37,7 @@ export class TrackComponent implements OnInit {
   }
 
   ngOnInit() { 
-    this.activities = ["Putting", "Chipping", "Approach", "Full-Swing"];
+    this.activities = ["Putting", "Chipping", "Approach", "Sand", "Full-Swing"];
     this.isRunning = false;
   }
 
