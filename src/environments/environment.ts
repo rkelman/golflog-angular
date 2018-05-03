@@ -5,5 +5,5 @@
 
 export const environment = {
   production: false,
-  api_url: 'https://test.golflog.daxhund.com/api'
+  api_url: 'https://glstage.daxhund.com/api'
 };
