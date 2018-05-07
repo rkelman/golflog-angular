@@ -39,6 +39,7 @@ export class TrackComponent implements OnInit {
   ngOnInit() { 
     this.activities = ["Putting", "Chipping", "Approach", "Sand", "Full-Swing"];
     this.isRunning = false;
+    console.log('User Token: '+this.currentUser.token);
   }
 
   startTimer() {
