@@ -39,7 +39,7 @@ export class TrackComponent implements OnInit {
   ngOnInit() { 
     this.activities = ["Putting", "Chipping", "Approach", "Sand", "Full-Swing"];
     this.isRunning = false;
-    console.log('User Token: '+this.currentUser.token);
+    //console.log('User Token: '+this.currentUser.token);
   }
 
   startTimer() {
@@ -49,7 +49,7 @@ export class TrackComponent implements OnInit {
         msg: ""};
       let startx = Date.now();
       this.startTime = this.datePipe.transform(startx, 'y-MM-dd HH:mm:ss');
-      console.log('Start: '+this.startTime);
+      //console.log('Start: '+this.startTime);
     }
     this.startAt = moment.now() - (this.time - this.startAt);
     this.watcher = Observable.timer(0,1000).subscribe(() => {
@@ -90,12 +90,12 @@ export class TrackComponent implements OnInit {
     //console.log('token: '+this.currentUser.token);
     this.activitySet = {
       uid: this.currentUser.uid,
-      token: this.currentUser.token,
       elapsedTime: this.formattedTime(),
       startTime: this.startTime,
       activity: activity,
       notes: notes
     }
+    //removed token from body: "token: this.currentUser.token,"
 
     this.activityService.postActivity(this.currentUser.uid, this.formattedTime(), activity, notes, this.startTime, this.currentUser.token)
     .subscribe(data => {

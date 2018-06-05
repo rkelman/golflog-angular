@@ -2,7 +2,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { DatePipe } from '@angular/common';
 import { FormsModule } from '@angular/forms';
-import { HttpClientModule, HttpHeaders } from '@angular/common/http';
+import { HttpClientModule, HttpHeaders, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { RouterModule, Routes } from '@angular/router';
 import { Chart } from 'chart.js';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
@@ -13,6 +13,7 @@ import { RegisterComponent } from './register/register.component';
 import { ResetComponent } from './reset/reset.component';
 import { TrackComponent } from './track/track.component';
 import { AuthService } from './auth.service';
+import { InterceptorService } from './interceptor.service';
 import { AlertService } from './alert.service';
 import { UserService } from './user.service';
 import { ActivityService } from './activity.service';
@@ -56,6 +57,11 @@ import { NavbarComponent } from './navbar/navbar.component';
     AlertService,
     UserService, 
     ActivityService,
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: InterceptorService,
+      multi: true
+    },
     DatePipe
   ],
   bootstrap: [AppComponent]
