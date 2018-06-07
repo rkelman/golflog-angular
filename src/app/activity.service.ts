@@ -16,16 +16,19 @@ export class ActivityService {
   postActivity(uid, elapsedTime, activity, notes, startTime, token) {
     let activitySet = {
       uid: uid,
-      token: token,
       elapsedTime: elapsedTime,
       startTime: startTime,
       activity: activity,
       notes: notes
     }
+
+    let header = new HttpHeaders().set('Authorization','Bearer '+token);
+    
     console.log(this.ROOT_URL + "/activity.php")
     console.log(JSON.stringify(activitySet));
+    console.log("Header: 'Authorization': 'Bearer "+token+"'");
 
-    return this.http.post<any>(this.ROOT_URL + "/activity.php", JSON.stringify(activitySet))
+    return this.http.post<any>(this.ROOT_URL + "/activity.php", JSON.stringify(activitySet), {headers: header})
          .map(res => {
            //activity post is successful of success == tru
            if (res && res.success == true) {

@@ -13,7 +13,6 @@ import { RegisterComponent } from './register/register.component';
 import { ResetComponent } from './reset/reset.component';
 import { TrackComponent } from './track/track.component';
 import { AuthService } from './auth.service';
-import { InterceptorService } from './interceptor.service';
 import { AlertService } from './alert.service';
 import { UserService } from './user.service';
 import { ActivityService } from './activity.service';
@@ -21,7 +20,7 @@ import { AlertComponent } from './alert/alert.component';
 import { ReportComponent } from './report/report.component';
 import { ListingComponent } from './listing/listing.component';
 import { NavbarComponent } from './navbar/navbar.component';
-//import { routes } from './app.routes';
+import { routes } from './app.routes';
 
 @NgModule({
   declarations: [
@@ -57,11 +56,6 @@ import { NavbarComponent } from './navbar/navbar.component';
     AlertService,
     UserService, 
     ActivityService,
-    {
-      provide: HTTP_INTERCEPTORS,
-      useClass: InterceptorService,
-      multi: true
-    },
     DatePipe
   ],
   bootstrap: [AppComponent]

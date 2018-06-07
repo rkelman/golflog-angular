@@ -12,6 +12,9 @@ export class AuthService implements OnInit {
   constructor(private http: HttpClient) {}
 
   authUser(credentials, type) {
+    
+    console.log(credentials);
+    console.log(this.ROOT_URL + "/"+type+".php");
     return this.http.post<any>(this.ROOT_URL + "/"+type+".php", credentials)
          .map(user => {
            //login successful if there's a jwt token in response
