@@ -22,11 +22,11 @@ export class ActivityService {
       notes: notes
     }
 
-    let header = new HttpHeaders().set('Auth','Bearer '+token);
+    let header = new HttpHeaders().set('Authorization','Bearer '+token);
     
     console.log(this.ROOT_URL + "/activity.php")
     console.log(JSON.stringify(activitySet));
-    console.log("Header: 'Auth': 'Bearer "+token+"'");
+    console.log("Header: 'Authorization': 'Bearer "+token+"'");
 
     return this.http.post<any>(this.ROOT_URL + "/activity.php", JSON.stringify(activitySet), {headers: header})
          .map(res => {
