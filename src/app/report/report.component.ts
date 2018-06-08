@@ -66,6 +66,7 @@ export class ReportComponent implements OnInit {
           //console.log('Type '+i+': '+this.summary[i].type);
         }
         
+        this.chart = [];
         this.chart = new Chart('canvas', {
           type: 'pie',
           data: {
