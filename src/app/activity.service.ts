@@ -24,9 +24,9 @@ export class ActivityService {
 
     let header = new HttpHeaders().set('Authorization','Bearer '+token);
     
-    console.log(this.ROOT_URL + "/activity.php")
-    console.log(JSON.stringify(activitySet));
-    console.log("Header: 'Authorization': 'Bearer "+token+"'");
+    //console.log(this.ROOT_URL + "/activity.php")
+    //console.log(JSON.stringify(activitySet));
+    //console.log("Header: 'Authorization': 'Bearer "+token+"'");
 
     return this.http.post<any>(this.ROOT_URL + "/activity.php", JSON.stringify(activitySet), {headers: header})
          .map(res => {
@@ -40,7 +40,7 @@ export class ActivityService {
   }
 
   getActivitySummary(uid, token, timePeriod){
-    console.log("url: "+this.ROOT_URL + "/activity.php?uid="+uid+"&type=summary&period="+timePeriod);
+    //console.log("url: "+this.ROOT_URL + "/activity.php?uid="+uid+"&type=summary&period="+timePeriod);
 
     return this.http.get<Activity[]>(this.ROOT_URL + "/activity.php?uid="+uid+"&type=summary&period="+timePeriod);
   }
@@ -53,16 +53,18 @@ export class ActivityService {
     return this.http.get<Activity[]>(this.ROOT_URL + "/activity.php?uid="+uid+"&type=list&number="+number);    
   }
 
-  deleteActivity(activityID, uid) {
+  deleteActivity(activityID, uid, token) {
     let activitySet = {
       uid: uid,
       activityID: activityID,
     }
 
-    console.log(JSON.stringify(activitySet));
-    console.log(this.ROOT_URL + "/activity.php?uid="+uid+"&activityID="+activityID);
+    let header = new HttpHeaders().set('Authorization','Bearer '+token);
 
-    return this.http.delete<any>(this.ROOT_URL + "/activity.php?uid="+uid+"&activityID="+activityID)
+    //console.log(JSON.stringify(activitySet));
+    //console.log(this.ROOT_URL + "/activity.php?uid="+uid+"&activityID="+activityID);
+
+    return this.http.delete<any>(this.ROOT_URL + "/activity.php?uid="+uid+"&activityID="+activityID, {headers: header})
          .map(res => {
            //activity post is successful of success == tru
            if (res) {

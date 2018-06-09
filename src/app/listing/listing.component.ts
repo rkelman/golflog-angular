@@ -29,8 +29,8 @@ export class ListingComponent implements OnInit {
     this.getList(10);
   }
 
-  deleteActivity(activityID, count) {
-    this.activityService.deleteActivity(activityID, this.currentUser.uid)
+  deleteActivity(activityID, count) {    
+    this.activityService.deleteActivity(activityID, this.currentUser.uid, this.currentUser.token)
     .subscribe(data => this.message = data);
 
     this.getList(count);
