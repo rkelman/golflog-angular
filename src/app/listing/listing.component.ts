@@ -39,6 +39,7 @@ export class ListingComponent implements OnInit {
     .subscribe(data => {
         if (data) {
           this.getList(this.currCount);
+          console.log("Completed Delete");
           this.deletedRow = null;
         } 
       });
