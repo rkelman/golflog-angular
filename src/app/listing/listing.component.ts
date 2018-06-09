@@ -17,6 +17,7 @@ export class ListingComponent implements OnInit {
   message: {success: boolean, 
     msg: string};
   currCount: number;
+  deletedRow: Number;
 
   constructor(private activityService: ActivityService,
     private alertService: AlertService) {
@@ -31,7 +32,8 @@ export class ListingComponent implements OnInit {
     this.getList(this.currCount);
   }
 
-  deleteActivity(activityID) {    
+  deleteActivity(activityID, index) {    
+    this.deletedRow = index;
     this.activityService.deleteActivity(activityID, this.currentUser.uid, this.currentUser.token)
     .subscribe(data => this.getList(this.currCount));
   }

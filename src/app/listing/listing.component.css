@@ -1,0 +1,4 @@
+.table tr.deleted td {
+    background-color:#ff6666;
+    color: white;
+  }

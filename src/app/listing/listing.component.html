@@ -26,12 +26,12 @@
         </tr>
         </thead>
         <tbody>
-          <tr *ngFor="let act of activities">
+          <tr *ngFor="let act of activities; let i = index" [class.deleted]="i == deletedRow">
             <td class="text-center" style="width: 160px;">{{act.practiceDateTime}}</td>
             <td class="text-center" style="width: 15px;">{{act.type}}</td>
             <td class="text-center" style="width: 200px;">{{act.elapsedTime}}</td>
             <td class="text-center" style="width: 300px;">{{act.notes}}</td>
-            <td class="text-center"><img src="assets/delete.png" height="30" width="30" (click)="deleteActivity(act.activityID)"></td>
+            <td class="text-center"><img src="assets/delete.png" height="30" width="30" (click)="deleteActivity(act.activityID, i)"></td>
           </tr>
         </tbody>
       </table>
