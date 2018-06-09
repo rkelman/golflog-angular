@@ -53,7 +53,7 @@ export class ActivityService {
     return this.http.get<Activity[]>(this.ROOT_URL + "/activity.php?uid="+uid+"&type=list&number="+number);    
   }
 
-  deleteActivity(activityID, uid, token) {
+  deleteActivity(activityID, uid, token, count) {
     let activitySet = {
       uid: uid,
       activityID: activityID,
@@ -69,7 +69,7 @@ export class ActivityService {
            //activity post is successful of success == tru
            if (res) {
              //if success then return result
-             return(res);
+             return (res);
            }
            return (res);
          });
