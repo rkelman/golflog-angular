@@ -45,9 +45,8 @@ export class ActivityService {
     return this.http.get<Activity[]>(this.ROOT_URL + "/activity.php?uid="+uid+"&type=summary&period="+timePeriod);
   }
 
-  
   getActivityList(uid, token, number): Observable<Activity[]>{
-    //console.log("url: "+this.ROOT_URL + "/activity.php?uid="+uid+"&type=list&number="+number);
+    console.log("url: "+this.ROOT_URL + "/activity.php?uid="+uid+"&type=list&number="+number);
 
     return this.http.get<Activity[]>(this.ROOT_URL + "/activity.php?uid="+uid+"&type=list&number="+number);    
   }
