@@ -16,6 +16,7 @@ export class ListingComponent implements OnInit {
   activities = [];
   message: {success: boolean, 
     msg: string};
+  currCount: number;
 
   constructor(private activityService: ActivityService,
     private alertService: AlertService) {
@@ -26,16 +27,18 @@ export class ListingComponent implements OnInit {
 
   ngOnInit() {
     this.counts = ["10", "20", "40"];
-    this.getList(10);
+    this.currCount = 10;
+    this.getList(this.currCount);
   }
 
-  deleteActivity(activityID, count) {    
+  deleteActivity(activityID) {    
     this.activityService.deleteActivity(activityID, this.currentUser.uid, this.currentUser.token)
-    .subscribe(data => this.getList(count));
+    .subscribe(data => this.getList(this.currCount));
   }
 
   getList(count: number): void{
     console.log('getList: '+count);
+    this.currCount = count;
     this.activityService.getActivityList(this.currentUser.uid, this.currentUser.token, count)
       .subscribe(data => this.activities = data);
   }
