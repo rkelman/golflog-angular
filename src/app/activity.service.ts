@@ -53,7 +53,7 @@ export class ActivityService {
     return this.http.get<Activity[]>(this.ROOT_URL + "/activity.php?uid="+uid+"&type=list&number="+number);    
   }
 
-  deleteActivity(activityID, uid, token, count) {
+  deleteActivity(activityID, uid, token) {
     let activitySet = {
       uid: uid,
       activityID: activityID,

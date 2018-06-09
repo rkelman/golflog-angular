@@ -30,7 +30,7 @@ export class ListingComponent implements OnInit {
   }
 
   deleteActivity(activityID, count) {    
-    this.activityService.deleteActivity(activityID, this.currentUser.uid, this.currentUser.token, count)
+    this.activityService.deleteActivity(activityID, this.currentUser.uid, this.currentUser.token)
     .subscribe(data => this.getList(count));
   }
 
