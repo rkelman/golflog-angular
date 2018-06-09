@@ -34,9 +34,14 @@ export class ListingComponent implements OnInit {
 
   deleteActivity(activityID, index) {    
     this.deletedRow = index;
+    console.log("Deleting Row "+index);
     this.activityService.deleteActivity(activityID, this.currentUser.uid, this.currentUser.token)
-    .subscribe(data => this.getList(this.currCount),
-                    this.deletedRow = null);
+    .subscribe(data => {
+        if (data) {
+          this.getList(this.currCount);
+          this.deletedRow = null;
+        } 
+      });
   }
 
   getList(count: number): void{
