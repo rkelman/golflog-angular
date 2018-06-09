@@ -34,19 +34,19 @@ export class ListingComponent implements OnInit {
 
   deleteActivity(activityID, index) {    
     this.deletedRow = index;
-    console.log("Deleting Row "+index);
+    //console.log("Deleting Row "+index);
     this.activityService.deleteActivity(activityID, this.currentUser.uid, this.currentUser.token)
     .subscribe(data => {
         if (data) {
           this.getList(this.currCount);
-          console.log("Completed Delete");
+          //console.log("Completed Delete");
           this.deletedRow = null;
         } 
       });
   }
 
   getList(count: number): void{
-    console.log('getList: '+count);
+    //console.log('getList: '+count);
     this.currCount = count;
     this.activityService.getActivityList(this.currentUser.uid, this.currentUser.token, count)
       .subscribe(data => this.activities = data);
