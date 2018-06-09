@@ -46,7 +46,7 @@ export class ListingComponent implements OnInit {
   }
 
   getList(count: number): void{
-    console.log("getList: "+ count);
+    //console.log("getList: "+ count);
     this.currCount = count;
     this.activityService.getActivityList(this.currentUser.uid, this.currentUser.token, count)
       .subscribe(data => this.activities = data);
